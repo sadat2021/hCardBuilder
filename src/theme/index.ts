@@ -27,8 +27,16 @@ const theme = createMuiTheme({
       fontFamily: 'MerriweatherSans',
       fontWeight: 800,
     },
+    h2 : {
+      fontSize: 24,
+      fontFamily: 'MerriweatherSans',
+      fontWeight: "bold",
+    },
     subtitle2:{
       fontSize: 10,
+    },
+    subtitle1:{
+      fontSize:16
     },
     button:{
       textTransform: "none",

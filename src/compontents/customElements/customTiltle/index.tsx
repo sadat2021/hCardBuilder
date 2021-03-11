@@ -1,5 +1,6 @@
-import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { Typography } from "@material-ui/core";
+import useStyles from "./index.styles";
 
 interface CustomTitleProps {
   title: string;
@@ -17,14 +18,3 @@ const CustomTitle = ({ title }: CustomTitleProps) => {
 };
 
 export default CustomTitle;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    borderBottom: "1px solid #dbe0e2",
-    marginBottom: 30,
-  },
-  title: {
-    color: "#B0B8BC",
-  },
-  input: {},
-}));

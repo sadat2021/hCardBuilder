@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@material-ui/core";
-import React from "react";
-import HCardBuilder from "./pages/HCardBuilder";
 import theme from "./theme";
+
+import HCardBuilder from "./pages/HCardBuilder";
 
 function App() {
   return (
