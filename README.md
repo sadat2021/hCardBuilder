@@ -20,22 +20,22 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
+Builds the app for production to the `build` folder.
 
 ## Assupmtions
 
-Detailed information which is used to create the card - will be entered by the user - can be found in `src\data\data.json`:\
+Detailed information which is used to create the card - will be entered by the user - can be found in `src\data\data.json`:
 
 Assumped that `phone number` must be started by `0` and 10 numbers.\
 Assumped that `post code` must be 4 numbers.\
 `Max` shows the maximum number of characters allowed for each field.\
 `Equal` shows the exact number of characters for each field.\
 `Upper` means that the character's field should be displayed in uppercase.\
-Assumped that all fields must be filled until the card has been created.\
+Assumped that all fields must be filled until the card has been created.
 
 Assumped that image size must not be exceeded more than 80K and its format must be one the following formats:\
 .jpg\
@@ -43,8 +43,8 @@ Assumped that image size must not be exceeded more than 80K and its format must 
 .gif\
 .png\
 .tiff\
-.jfif\
+.jfif
 
-Test has been developed and the test data can be found in `src\data\testData.json`.\
+Test has been developed and the test data can be found in `src\data\testData.json`.
 
-The webpage is mobile-responsive.\
+The webpage is mobile-responsive.
