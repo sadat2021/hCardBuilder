@@ -30,8 +30,8 @@ Builds the app for production to the `build` folder.
 
 Detailed information which is used to create the card - will be entered by the user - can be found in `src\data\data.json`:
 
-Assumped that `phone number` must be started by `0` and 10 numbers.\
-Assumped that `post code` must be 4 numbers.\
+Assumped that `phone number` must be started by `0` and `10` numbers.\
+Assumped that `post code` must be `4` numbers.\
 `Max` shows the maximum number of characters allowed for each field.\
 `Equal` shows the exact number of characters for each field.\
 `Upper` means that the character's field should be displayed in uppercase.\
