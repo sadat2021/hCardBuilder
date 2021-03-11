@@ -12,7 +12,7 @@ const FormBuilder = () => {
   const [imgError, setImgError] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   return (
-    <Grid item lg={6} className={classes.root}>
+    <Grid item lg={6} container alignItems="center" className={classes.root}>
       <Typography variant="h1" className={classes.title}>
         h Card Builder
       </Typography>
