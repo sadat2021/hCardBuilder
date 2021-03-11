@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Getting Started with H Card Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project developed by React.js and Typescript for creating a card using the information of a user.
+
+## Used programming languages & libraries
+
+Material.ui has been used as a UIKit.\
+Jest and Enzyme has been used for testing purposes.\
+Hooks has been used in order to functional component programming.\
+Typescript has been used for adding type checking to Javascript.\
 
 ## Available Scripts
 
@@ -11,36 +18,33 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Assupmtions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Detailed information which is used to create the card - will be entered by the user - can be found in `src\data\data.json`:\
 
-### `npm run eject`
+Assumped that `phone number` must be started by `0` and 10 numbers.\
+Assumped that `post code` must be 4 numbers.\
+`Max` shows the maximum number of characters allowed for each field.\
+`Equal` shows the exact number of characters for each field.\
+`Upper` means that the character's field should be displayed in uppercase.\
+Assumped that all fields must be filled until the card has been created.\
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Assumped that image size must not be exceeded more than 80K and its format must be one the following formats:\
+.jpg\
+.jpeg\
+.gif\
+.png\
+.tiff\
+.jfif\
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Test has been developed and the test data can be found in `src\data\testData.json`.\
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The webpage is mobile-responsive.\
