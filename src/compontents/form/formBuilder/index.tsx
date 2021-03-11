@@ -74,6 +74,7 @@ const FormBuilder = () => {
         </Grid>
         <Grid item xs={12} lg={6}>
           <Button
+            data-testid="submitButton"
             variant="contained"
             color="primary"
             className={classes.button}

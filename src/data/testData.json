@@ -1,0 +1,16 @@
+[
+    { "label": "GIVENNAME", "value": "jhon" },
+    { "label": "SURENAME", "value": "smith" },
+    { "label": "EMAIL", "value": "jhon@gmail.com.au" },
+    { "label": "PHONE", "value": "0255557777" },
+    {
+      "label": "HOUSENAMEOR#",
+      "value": "36"
+    },
+    { "label": "STREET", "value": "bonar" },
+    { "label": "SUBURB", "value": "hornsby" },
+    { "label": "STATE", "value": "nsw" },
+    { "label": "POSTCODE", "value": "2077" },
+    { "label": "COUNTRY", "value": "australia" }
+  ]
+  

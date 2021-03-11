@@ -5,6 +5,7 @@ import { act } from "react-dom/test-utils";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "../../theme";
 
+import testData from "../../data/testData.json";
 import HCardBuilder from "../HCardBuilder";
 
 configure({ adapter: new Adapter() });
@@ -24,25 +25,45 @@ describe("card builder", () => {
         <HCardBuilder />
       </ThemeProvider>
     );
+    testData.map((td) => {
+      var inp = wrapper.find(`[data-testid="test${td.label}"]`);
+      expect(inp.length).toBe(1);
+      act(() => {
+        inp.simulate("change", { target: { value: td.value } });
+      });
 
-    const givenNameInput = wrapper.find('[data-testid="testGIVENNAME"]');
-    const sureNameInput = wrapper.find('[data-testid="testSURENAME"]');
-    const PhoneInput = wrapper.find('[data-testid="testPHONE"]');
-
-    expect(givenNameInput.length).toBe(1);
-    expect(sureNameInput.length).toBe(1);
-    expect(PhoneInput.length).toBe(1);
+      wrapper.update();
+      var expectedValue;
+      if (td.label === "PHONE") {
+        let newVal =
+          td.value.substring(0, 2) +
+          " " +
+          td.value.substring(2, 6) +
+          " " +
+          td.value.substring(6, 11);
+        expectedValue = newVal;
+      } else {
+        expectedValue =
+          td.value.substring(0, 1).toUpperCase() + td.value.substring(1);
+      }
+      expect(inp.instance().value).toBe(expectedValue);
+    });
 
     act(() => {
-      givenNameInput.simulate("change", { target: { value: "jhon" } });
-      sureNameInput.simulate("change", { target: { value: "smith" } });
-      PhoneInput.simulate("change", { target: { value: "0245698745" } });
+      wrapper.find('[data-testid="submitButton"]').at(0).simulate("click");
     });
 
     wrapper.update();
 
-    expect(givenNameInput.instance().value).toBe("Jhon");
-    expect(sureNameInput.instance().value).toBe("Smith");
-    expect(PhoneInput.instance().value).toBe("02 4569 8745");
+    const cardTitleComponent = wrapper.find('[data-testid="cardFullName"]');
+    var expectedName =
+      testData[0].value.substring(0, 1).toUpperCase() +
+      testData[0].value.substring(1);
+    var expectedSurName =
+      testData[1].value.substring(0, 1).toUpperCase() +
+      testData[1].value.substring(1);
+    expect(cardTitleComponent.text()).toBe(
+      expectedName + " " + expectedSurName
+    );
   });
 });

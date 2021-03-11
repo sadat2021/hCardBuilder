@@ -23,7 +23,9 @@ const HCardHeader = () => {
         })}
         variant="h2"
       >
-        {getItemValue("GIVEN NAME") + " " + getItemValue("SURENAME")}
+        <span data-testid="cardFullName">
+          {getItemValue("GIVEN NAME") + " " + getItemValue("SURENAME")}
+        </span>
       </Typography>
       <div className={imageDiv}>
         <img
