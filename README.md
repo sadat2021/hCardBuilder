@@ -30,21 +30,21 @@ Builds the app for production to the `build` folder.
 
 Detailed information which is used to create the card - will be entered by the user - can be found in `src\data\data.json`:
 
-- Assumped that `phone number` must be started by `0` and `10` numbers.
+- Assumped that `phone number` must be started by `0` and `10` numbers. I have set `0` by default when related input box has been focused or clicked.
 - Assumped that `post code` must be `4` numbers.
 - `Max` shows the maximum number of characters allowed for each field.
 - `Equal` shows the exact number of characters for each field.
-- `Upper` means that the character's field should be displayed in uppercase.
-- Assumped that all fields must be filled until the card has been created.
+- `Upper` means that the character should be displayed in uppercase.
+- Assumped that all fields must be filled in the way mentioned above until the card has been created.
 
 Assumped that image size must not be exceeded more than 80K and its format must be one the following formats:
 
-- .jpg
-- .jpeg
-- .gif
-- .png
-- .tiff
-- .jfif
+- jpg
+- jpeg
+- gif
+- png
+- tiff
+- jfif
 
 Test has been developed and the test data can be found in `src\data\testData.json`.
 
