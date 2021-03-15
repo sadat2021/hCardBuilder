@@ -1,6 +1,6 @@
 import React from "react";
 import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
-import { configure, mount, shallow } from "enzyme";
+import { configure, mount, ReactWrapper, shallow } from "enzyme";
 import { act } from "react-dom/test-utils";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "../../theme";
@@ -25,15 +25,16 @@ describe("card builder", () => {
         <HCardBuilder />
       </ThemeProvider>
     );
+    let expectedValue: string;
+    let inp: ReactWrapper;
     testData.map((td) => {
-      var inp = wrapper.find(`[data-testid="test${td.label}"]`);
+      inp = wrapper.find(`[data-testid="test${td.label}"]`);
       expect(inp.length).toBe(1);
       act(() => {
         inp.simulate("change", { target: { value: td.value } });
       });
 
       wrapper.update();
-      var expectedValue;
       if (td.label === "PHONE") {
         let newVal =
           td.value.substring(0, 2) +
@@ -56,10 +57,10 @@ describe("card builder", () => {
     wrapper.update();
 
     const cardTitleComponent = wrapper.find('[data-testid="cardFullName"]');
-    var expectedName =
+    const expectedName =
       testData[0].value.substring(0, 1).toUpperCase() +
       testData[0].value.substring(1);
-    var expectedSurName =
+    const expectedSurName =
       testData[1].value.substring(0, 1).toUpperCase() +
       testData[1].value.substring(1);
     expect(cardTitleComponent.text()).toBe(
