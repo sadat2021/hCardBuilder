@@ -19,6 +19,7 @@ const FormBuilder = () => {
       {FormDetails.map(({ title, items }) => (
         <FormInfoSection key={title} title={title} items={items} />
       ))}
+
       <Grid container direction="row">
         {imgError && (
           <Grid container>
@@ -31,7 +32,7 @@ const FormBuilder = () => {
           <input
             accept=".png, .jpg, .jpeg, .gif, .tiff, .jfif"
             onChange={(e) => {
-              var FR = new FileReader();
+              let FR = new FileReader();
               if (
                 e.target.files &&
                 e.target.files[0] &&
