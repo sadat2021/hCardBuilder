@@ -86,10 +86,10 @@ const CustomInput = ({ label, type, inputType }: CustomInputProps) => {
         })}
         value={item.value}
         onChange={(e) => {
-          let val = e.target.value;
+          let val: string = e.target.value;
           if (type === "phone") {
             val = val.replace(/\s/g, "");
-            let newVal = val.substring(0, 2);
+            let newVal: string = val.substring(0, 2);
             newVal = newVal + (val.length > 2 ? " " : "");
             newVal = newVal + val.substring(2, 6);
             newVal = newVal + (val.length > 6 ? " " : "");

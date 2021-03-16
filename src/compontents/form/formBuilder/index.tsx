@@ -16,6 +16,7 @@ const FormBuilder = () => {
       <Typography variant="h1" className={classes.title}>
         h Card Builder
       </Typography>
+      {/* constructing the form */}
       {FormDetails.map(({ title, items }) => (
         <FormInfoSection key={title} title={title} items={items} />
       ))}
@@ -32,7 +33,7 @@ const FormBuilder = () => {
           <input
             accept=".png, .jpg, .jpeg, .gif, .tiff, .jfif"
             onChange={(e) => {
-              let FR = new FileReader();
+              const FR = new FileReader();
               if (
                 e.target.files &&
                 e.target.files[0] &&

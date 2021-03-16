@@ -36,7 +36,7 @@ describe("card builder", () => {
 
       wrapper.update();
       if (td.label === "PHONE") {
-        let newVal =
+        let newVal: string =
           td.value.substring(0, 2) +
           " " +
           td.value.substring(2, 6) +

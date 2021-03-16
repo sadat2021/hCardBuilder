@@ -30,7 +30,7 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
 
   // get value from cardData state
   const getItemValue = (labelItem: string): string => {
-    let result = "";
+    let result: string = "";
 
     cardData.forEach(({ label, value }) => {
       if (label === labelItem) {
