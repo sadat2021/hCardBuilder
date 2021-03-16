@@ -69,7 +69,7 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     newValues.forEach((nv) => {
       if (nv.label === label) {
         nv.value = value;
-        let spaceIndex: number = value.lastIndexOf(" ");
+        const spaceIndex: number = value.lastIndexOf(" ");
         if (spaceIndex === -1) {
           nv.value = value.substring(0, 1).toUpperCase() + value.substring(1);
         } else {
@@ -104,10 +104,10 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     let checked: boolean = true;
     let newValues = values;
 
-    newValues.forEach((item) => {
-      if (item.value === "") {
+    newValues.forEach((nv) => {
+      if (nv.value === "") {
         checked = false;
-        item.errorMsg = `Please enter ${item.label.toLowerCase()}!`;
+        nv.errorMsg = `Please enter ${nv.label.toLowerCase()}!`;
       } else {
         const arrNumber: { labelItem: string; len: number }[] = [
           { labelItem: "POSTCODE", len: 4 },
@@ -115,16 +115,16 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
         ];
         arrNumber.forEach(({ labelItem, len }) => {
           if (
-            labelItem === item.label &&
-            item.value.replace(/\s/g, "").length !== len
+            labelItem === nv.label &&
+            nv.value.replace(/\s/g, "").length !== len
           ) {
             checked = false;
-            item.errorMsg = `${labelItem} should be ${len} characters!`;
+            nv.errorMsg = `${labelItem} should be ${len} characters!`;
           }
         });
-        if (item.label === "EMAIL" && !/\S+@\S+\.\S+/.test(item.value)) {
+        if (nv.label === "EMAIL" && !/\S+@\S+\.\S+/.test(nv.value)) {
           checked = false;
-          item.errorMsg = `Invalid Email Address!`;
+          nv.errorMsg = `Invalid Email Address!`;
         }
       }
     });
