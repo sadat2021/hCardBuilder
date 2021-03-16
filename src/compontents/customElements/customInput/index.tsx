@@ -63,7 +63,7 @@ const CustomInput = ({ label, type, inputType }: CustomInputProps) => {
   const [error, setError] = useState(false);
   const { getStateItem, setStateItem } = useContext(ItemContext);
 
-  let item = getStateItem(label);
+  const item = getStateItem(label);
   const conditionInput: string[] = inputType.split("|");
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -115,8 +115,9 @@ const CustomInput = ({ label, type, inputType }: CustomInputProps) => {
           }
         }}
         onFocus={() => {
-          setError(false);
-          item.errorMsg.length > 0 && setStateItem(label, item.value, "");
+          item.errorMsg.length > 0 &&
+            setError(false) &&
+            setStateItem(label, item.value, "");
           if (type === "phone" && item.value === "") {
             setStateItem(label, "0", "");
           }

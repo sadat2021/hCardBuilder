@@ -28,6 +28,7 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     { label: string; value: string; errorMsg: string }[]
   >([]);
 
+  // get value from cardData state
   const getItemValue = (labelItem: string): string => {
     let result = "";
 
@@ -38,7 +39,7 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     });
     return result;
   };
-
+  // in form builder this state has been used for controlling the input boxes
   const [values, setValues] = useState<
     {
       label: string;
@@ -57,7 +58,7 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     { label: "POSTCODE", value: "", errorMsg: "" },
     { label: "COUNTRY", value: "", errorMsg: "" },
   ]);
-
+  // changing the values state for controlling inputs and setting error messages
   const setStateItem = (
     label: string,
     value: string,
@@ -82,7 +83,7 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     });
     setValues([...newValues]);
   };
-
+  // get the values state
   const getStateItem = (
     label: string
   ): { label: string; value: string; errorMsg: string } => {
@@ -98,29 +99,32 @@ const ItemContextProvider = ({ children }: ItemContextProviderProps) => {
     });
     return result;
   };
-
+  // When Create Hcard has been clicked it checkes all input fields, modify values state and change checked to be false for disableing the button
   const checkAllfields = (): boolean => {
     let checked: boolean = true;
     let newValues = values;
 
-    newValues.forEach(({ label, value, errorMsg }) => {
-      if (value === "") {
+    newValues.forEach((item) => {
+      if (item.value === "") {
         checked = false;
-        errorMsg = `Please enter ${label.toLowerCase()}!`;
+        item.errorMsg = `Please enter ${item.label.toLowerCase()}!`;
       } else {
         const arrNumber: { labelItem: string; len: number }[] = [
           { labelItem: "POSTCODE", len: 4 },
           { labelItem: "PHONE", len: 10 },
         ];
         arrNumber.forEach(({ labelItem, len }) => {
-          if (labelItem === label && value.replace(/\s/g, "").length !== len) {
+          if (
+            labelItem === item.label &&
+            item.value.replace(/\s/g, "").length !== len
+          ) {
             checked = false;
-            errorMsg = `${labelItem} should be ${len} characters!`;
+            item.errorMsg = `${labelItem} should be ${len} characters!`;
           }
         });
-        if ("EMAIL" === label && !/\S+@\S+\.\S+/.test(value)) {
+        if (item.label === "EMAIL" && !/\S+@\S+\.\S+/.test(item.value)) {
           checked = false;
-          errorMsg = `Invalid Email Address!`;
+          item.errorMsg = `Invalid Email Address!`;
         }
       }
     });
